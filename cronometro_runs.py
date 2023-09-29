@@ -9,7 +9,6 @@ bot = commands.Bot(command_prefix='/', intents=intents)
 
 timers = {
     "minato": {"tempo_fixo": datetime.timedelta(minutes=120), "tempo_customizado": None, "contagem_fixa": True},
-    "mini minato": {"tempo_fixo": datetime.timedelta(minutes=60), "tempo_customizado": None, "contagem_fixa": True},
     "d reaper": {"tempo_fixo": datetime.timedelta(minutes=60), "tempo_customizado": None, "contagem_fixa": True},
 }
 

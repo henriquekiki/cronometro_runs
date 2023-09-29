@@ -27,3 +27,8 @@ Exemplo:
 
 "/dreaper 45"
 Isso agendará um temporizador para o evento "Run de Minato" em 45 minutos.
+
+# Funcionalidades:
+
+Aviso:
+Sempre que faltar 5 minutos para um dos contadores zerar, o bot avisa que faltam 5 minutos para aquele respectivo contador zerar.
