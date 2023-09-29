@@ -77,5 +77,5 @@ async def on_ready():
     atualizar_temporizadores.start()
 
 
-discord_token = 'MTE0NDYxOTQwODA0MDM5ODg0OA.G-qT4l.O5L9ATaJn1Qj7i0qjTnqUfmpsOgJ_1Yo8IU-8Y'
+discord_token = 'TOKEN DO BOT AQUI'
 bot.run(discord_token)
