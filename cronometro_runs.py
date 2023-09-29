@@ -46,13 +46,27 @@ async def atualizar_temporizadores():
             timer['tempo_customizado'] -= datetime.timedelta(seconds=1)
             timer['contagem_fixa'] = False
 
+            if timer['tempo_customizado'].total_seconds() == 300:
+                await enviar_notificacao(timer_name, "tempo_customizado")
+
+        
         else:
             timer['contagem_fixa'] = True
             timer['tempo_fixo'] -= datetime.timedelta(seconds=1)
+            
+            if timer['tempo_fixo'].total_seconds() == 300:
+                await enviar_notificacao(timer_name, "tempo_fixo")
+        
         
         if timer['tempo_fixo'].total_seconds() <= 0:
             timer['tempo_fixo'] = timers[timer_name]['original_tempo_fixo']
 
+async def enviar_notificacao(timer_name, timer_type):
+    timers[timer_name]['notificacao'] = True
+    id_canal = 1145116092432404642
+    canal = bot.get_channel(id_canal)
+    if canal:
+        await canal.send(f"Faltam 5 minutos para run {timer_name} começar!")
 
 @bot.event
 async def on_ready():
@@ -63,5 +77,5 @@ async def on_ready():
     atualizar_temporizadores.start()
 
 
-discord_token = 'TOKEN DO SEU BOT AQUI'
+discord_token = 'MTE0NDYxOTQwODA0MDM5ODg0OA.G-qT4l.O5L9ATaJn1Qj7i0qjTnqUfmpsOgJ_1Yo8IU-8Y'
 bot.run(discord_token)
